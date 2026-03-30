@@ -10,7 +10,7 @@ Route::get('/majors', [ClientController::class, 'majors'])->name('majors');
 
 Route::get('/doctors', [ClientController::class, 'doctors'])->name('doctors');
 
-Route::get('/doctor/book/{doctor_id?}', [ClientController::class, 'book'])->name('book-appointment');
+Route::get('/doctor/book/{doctor}', [ClientController::class, 'book'])->name('book-appointment');
 
 Route::get('/contact', [ClientController::class, 'contact'])->name('contact');
 
