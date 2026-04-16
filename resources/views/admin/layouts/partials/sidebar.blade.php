@@ -18,6 +18,10 @@
                     <span>Doctors</span>
                 </button>
                 <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-all">
+                    <i class="fas fa-users"></i>
+                    <a href="{{ route('admin.all-users') }}" class="text-slate-400 hover:text-white">All Users</a>
+                </button>
+                <button class="nav-btn w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 transition-all">
                     <i class="fas fa-calendar"></i>
                     <span>Appointments</span>
                 </button>

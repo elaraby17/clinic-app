@@ -6,6 +6,7 @@ use App\Models\Doctor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class Doctors extends Seeder
 {
@@ -15,9 +16,14 @@ class Doctors extends Seeder
     public function run(): void
     {
 
-          DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-            Doctor::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        // 1. تعطيل القيود بطريقة متوافقة مع كل الأنواع
+        Schema::disableForeignKeyConstraints();
+
+        // 2. تفريغ الجدول
+        Doctor::truncate();
+
+        // 3. إعادة تفعيل القيود
+        Schema::enableForeignKeyConstraints();
         $doctors = [
             [
                 'name' => 'Ahmed Mohamed',

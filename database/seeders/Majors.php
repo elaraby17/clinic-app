@@ -6,6 +6,7 @@ use App\Models\Major;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class Majors extends Seeder
 {
@@ -14,9 +15,14 @@ class Majors extends Seeder
      */
     public function run(): void
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        // 1. تعطيل القيود بطريقة متوافقة مع كل الأنواع
+        Schema::disableForeignKeyConstraints();
+
+        // 2. تفريغ الجدول
         Major::truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        // 3. إعادة تفعيل القيود
+        Schema::enableForeignKeyConstraints();
         $majors = [
             ['name' => 'Bone', 'slug' => 'bone', 'image' => 'https://aoa.org.au/images/default-source/Travelling-Exhibition/bones/skeleton-graphic-transparent-w-text-and-shadow.png?sfvrsn=fab9cb04_2'],
             ['name' => 'Cardiology', 'slug' => 'cardiology', 'image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Heart_diagram_blood_flow_en.svg/250px-Heart_diagram_blood_flow_en.svg.png'],
