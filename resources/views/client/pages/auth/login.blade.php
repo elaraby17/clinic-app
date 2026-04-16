@@ -4,6 +4,14 @@
 
 @section('content')
 
+@if(@session('success'))
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6" role="alert">
+        <strong class="font-bold">Success!</strong>
+        <span class="block sm:inline">{{ session('success') }}</span>
+    </div>
+
+
+@endif
 <div class="min-h-screen bg-slate-50 flex items-center justify-center px-4 py-16">
     <div class="w-full max-w-md">
 
@@ -39,7 +47,6 @@
                            id="email"
                            name="email"
                            value="{{ old('email') }}"
-                           required
                            placeholder="you@example.com"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
                                   placeholder-slate-300 bg-slate-50 outline-none
@@ -59,7 +66,6 @@
                     <input type="password"
                            id="password"
                            name="password"
-                           required
                            placeholder="••••••••"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
                                   placeholder-slate-300 bg-slate-50 outline-none

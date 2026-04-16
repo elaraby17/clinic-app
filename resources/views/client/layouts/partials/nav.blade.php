@@ -48,6 +48,9 @@
         </div>
 
         {{-- Auth Buttons --}}
+        @guest
+
+
         <div class="hidden md:flex items-center gap-3">
             <a href="{{ route('login') }}"
                class="text-sm font-medium text-white/80 px-5 py-2.5 rounded-lg border border-white/20
@@ -60,6 +63,14 @@
                 Register
             </a>
         </div>
+         @endguest
+            @auth
+              <a href="{{ route('logout') }}"
+               class="text-sm font-bold text-[#0a1f5c] px-5 py-2.5 rounded-lg bg-sky-400
+                      hover:bg-sky-300 transition-all duration-200">
+                Logout
+            </a>
+          @endauth
 
         {{-- Mobile Hamburger --}}
         <button id="nav-toggle"

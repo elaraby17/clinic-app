@@ -35,7 +35,7 @@
             <div>
                 <h4 class="text-base font-bold text-slate-800 mb-1">{{ $doctor->name }}</h4>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    {{ $doctor->address }}
+                    {{ $doctor->bio ?? "No bio available for this doctor." }}
 
                 </p>
                 <span class="inline-block mt-2 text-xs font-semibold text-sky-500 bg-sky-50
@@ -61,7 +61,7 @@
                     <input type="text"
                            id="name"
                            name="name"
-                           value="{{ old('name') }}"
+                           value="{{ auth()->user()->name ?? "" }}"
                            required
                            placeholder="Your full name"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
@@ -82,7 +82,7 @@
                     <input type="tel"
                            id="phone"
                            name="phone"
-                           value="{{ old('phone') }}"
+                           value="{{ auth()->user()->phone ?? "" }}"
                            required
                            placeholder="+20 1XX XXX XXXX"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
@@ -103,7 +103,7 @@
                     <input type="email"
                            id="email"
                            name="email"
-                           value="{{ old('email') }}"
+                           value="{{ auth()->user()->email ?? "" }}"
                            required
                            placeholder="you@example.com"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800

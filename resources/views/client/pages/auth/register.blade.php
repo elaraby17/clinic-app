@@ -39,7 +39,6 @@
                            id="name"
                            name="name"
                            value="{{ old('name') }}"
-                           required
                            placeholder="Your full name"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
                                   placeholder-slate-300 bg-slate-50 outline-none
@@ -60,7 +59,6 @@
                            id="phone"
                            name="phone"
                            value="{{ old('phone') }}"
-                           required
                            placeholder="+20 1XX XXX XXXX"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
                                   placeholder-slate-300 bg-slate-50 outline-none
@@ -81,7 +79,6 @@
                            id="email"
                            name="email"
                            value="{{ old('email') }}"
-                           required
                            placeholder="you@example.com"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
                                   placeholder-slate-300 bg-slate-50 outline-none
@@ -101,13 +98,31 @@
                     <input type="password"
                            id="password"
                            name="password"
-                           required
                            placeholder="••••••••"
                            class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
                                   placeholder-slate-300 bg-slate-50 outline-none
                                   focus:border-sky-400 focus:bg-white focus:ring-2 focus:ring-sky-400/15
                                   transition-all duration-200
                                   @error('password') border-red-400 bg-red-50 @enderror">
+                    @error('password')
+                        <p class="text-xs text-red-500 mt-0.5">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- Confirm Password --}}
+                <div class="flex flex-col gap-1.5">
+                    <label for="password_confirmation" class="text-sm font-semibold text-slate-700">
+                        Confirm Password <span class="text-red-400">*</span>
+                    </label>
+                    <input type="password"
+                           id="password_confirmation"
+                           name="password_confirmation"
+                           placeholder="••••••••"
+                           class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-800
+                                  placeholder-slate-300 bg-slate-50 outline-none
+                                  focus:border-sky-400 focus:bg-white focus:ring-2 focus:ring-sky-400/15
+                                  transition-all duration-200
+                                  @error('password_confirmation') border-red-400 bg-red-50 @enderror">
                     @error('password')
                         <p class="text-xs text-red-500 mt-0.5">{{ $message }}</p>
                     @enderror
